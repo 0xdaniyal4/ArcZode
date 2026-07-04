@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Prevent wallet extension conflicts from crashing the app due to window.ethereum redefinition -->
+    <script>
+      (function() {
+        try {
+          const originalDefineProperty = Object.defineProperty;
+          Object.defineProperty = function(obj, prop, descriptor) {
+            if (prop === 'ethereum' && obj === window) {
+              try {
+                return originalDefineProperty.apply(this, arguments);
+              } catch (e) {
+                console.warn("Prevented crash from wallet extension trying to redefine window.ethereum:", e);
+                // Safely attempt a regular assignment if a value or getter exists
+                try {
+                  if (descriptor) {
+                    const val = descriptor.value !== undefined ? descriptor.value : (typeof descriptor.get === 'function' ? descriptor.get() : undefined);
+                    if (val !== undefined) {
+                      window.ethereum = val;
+                    }
+                  }
+                } catch (err) {
+                  console.warn("Failed to assign fallback value to window.ethereum:", err);
+                }
+                return obj;
+              }
+            }
+            return originalDefineProperty.apply(this, arguments);
+          };
+        } catch (globalError) {
+          console.error("Failed to inject ethereum redefinition guard:", globalError);
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArcZode — DEX on Arc Testnet</title>
+    <meta name="description" content="First DEX with liquidity pools on Arc Testnet" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;800;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- SVG Favicon with the ArcZode design -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cfilter id='glow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='3' result='blur' /%3E%3CfeComposite in='SourceGraphic' in2='blur' operator='over' /%3E%3C/filter%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='%23000820' stroke='%230033CC' stroke-width='3' /%3E%3Cpath d='M 30 42 A 22 22 0 0 1 70 42' fill='none' stroke='%23FFD700' stroke-width='4' stroke-linecap='round' filter='url(%23glow)' /%3E%3Cpath d='M 70 58 A 22 22 0 0 1 30 58' fill='none' stroke='%230033CC' stroke-width='4' stroke-linecap='round' /%3E%3Cpolygon points='70,36 76,46 64,44' fill='%23FFD700' /%3E%3Cpolygon points='30,64 24,54 36,56' fill='%230033CC' /%3E%3Ctext x='50' y='59' font-family='Outfit, sans-serif' font-weight='900' font-size='28' fill='%23FFD700' text-anchor='middle' filter='url(%23glow)'%3EZ%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body class="bg-[#00010F] text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

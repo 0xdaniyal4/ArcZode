@@ -1,0 +1,6 @@
+{
+  "name": "ArcZode",
+  "description": "First decentralized exchange with liquidity pools on Arc Testnet. Swap USDC and EURC, provide liquidity, earn AZD token rewards, and stake AZD for additional yield.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

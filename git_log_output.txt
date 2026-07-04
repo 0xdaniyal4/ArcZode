@@ -1,0 +1,4 @@
+Error: Command failed: git log -p -S "DEX_ADDRESS" src/contracts.ts
+fatal: not a git repository (or any of the parent directories): .git
+
+fatal: not a git repository (or any of the parent directories): .git

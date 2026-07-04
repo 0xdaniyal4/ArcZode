@@ -1,0 +1,30 @@
+[
+  {
+    "test": "5 USDC, 4 EURC",
+    "res": {
+      "success": false,
+      "error": "The contract function \"addLiquidity\" reverted.\n\nContract Call:\n  address:   0x0d02E4a1510C468Dab89E81B6F105120C694f806\n  function:  addLiquidity(uint256 usdcAmount, uint256 eurcAmount)\n  args:                  (5000000, 4000000)\n  sender:    0x13b3216c71bc6a75b9dd87017dde2e8867d8999f\n\nDocs: https://viem.sh/docs/contract/simulateContract\nDetails: execution reverted\nVersion: viem@2.53.1"
+    }
+  },
+  {
+    "test": "5 USDC, 5 EURC",
+    "res": {
+      "success": false,
+      "error": "The contract function \"addLiquidity\" reverted.\n\nContract Call:\n  address:   0x0d02E4a1510C468Dab89E81B6F105120C694f806\n  function:  addLiquidity(uint256 usdcAmount, uint256 eurcAmount)\n  args:                  (5000000, 5000000)\n  sender:    0x13b3216c71bc6a75b9dd87017dde2e8867d8999f\n\nDocs: https://viem.sh/docs/contract/simulateContract\nDetails: execution reverted\nVersion: viem@2.53.1"
+    }
+  },
+  {
+    "test": "10 USDC, 10 EURC",
+    "res": {
+      "success": false,
+      "error": "The contract function \"addLiquidity\" reverted.\n\nContract Call:\n  address:   0x0d02E4a1510C468Dab89E81B6F105120C694f806\n  function:  addLiquidity(uint256 usdcAmount, uint256 eurcAmount)\n  args:                  (10000000, 10000000)\n  sender:    0x13b3216c71bc6a75b9dd87017dde2e8867d8999f\n\nDocs: https://viem.sh/docs/contract/simulateContract\nDetails: execution reverted\nVersion: viem@2.53.1"
+    }
+  },
+  {
+    "test": "100 USDC, 100 EURC",
+    "res": {
+      "success": false,
+      "error": "The contract function \"addLiquidity\" reverted.\n\nContract Call:\n  address:   0x0d02E4a1510C468Dab89E81B6F105120C694f806\n  function:  addLiquidity(uint256 usdcAmount, uint256 eurcAmount)\n  args:                  (100000000, 100000000)\n  sender:    0x13b3216c71bc6a75b9dd87017dde2e8867d8999f\n\nDocs: https://viem.sh/docs/contract/simulateContract\nDetails: execution reverted\nVersion: viem@2.53.1"
+    }
+  }
+]

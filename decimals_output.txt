@@ -1,0 +1,4 @@
+Decimals:
+USDC: 6
+EURC: 6
+AZD: 18
